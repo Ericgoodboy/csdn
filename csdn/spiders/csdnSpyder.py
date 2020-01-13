@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
 import scrapy
+import logging
 from csdn.items import CsdnItem
+
+logger = logging.getLogger(__name__)
 
 class CsdnspyderSpider(scrapy.Spider):
     name = 'csdnSpyder'
@@ -8,20 +11,13 @@ class CsdnspyderSpider(scrapy.Spider):
     start_urls = ['https://blog.csdn.net/u014427391/article/details/102785219']
 
     def parse(self, response):
-        print("="*30)
-        print(response.xpath("//div[@id='content_views']").get())
-        print(">"*30)
         for i in response.xpath("//div[@class='content']/a/@href"):
-            print(i.get())
-        print("<"*30)
-        print(response.url)
-        print("-"*30)
+            logger.debug(i.get())
+            pass
         tags = []
         for i in response.xpath("//a[@class='tag-link']/text()"):
             tag = i.get().strip().lstrip()
-            print(tag)
             tags.append(tag)
-        print("="*30)
-        item = CsdnItem(tags = tags,url = response.url,content=response.xpath("//div[@id='content_views']").get())
+        item = CsdnItem(tags=tags, url=response.url, content=response.xpath("//div[@id='content_views']").get())
         yield item
         
