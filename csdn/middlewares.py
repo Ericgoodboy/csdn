@@ -7,7 +7,7 @@
 
 from scrapy import signals
 
-
+import random
 class CsdnSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
@@ -69,6 +69,21 @@ class CsdnDownloaderMiddleware(object):
         return s
 
     def process_request(self, request, spider):
+        '''
+        在请求发送之前调用
+        :param request: 请求对象
+        :param spider: 是哪个请求发出的
+        :return:
+        '''
+        useragents=[
+            "Opera/9.80 (Windows NT 6.1; U; zh-cn) Presto/2.9.168 Version/11.50",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50",
+            "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Win64; x64; Trident/5.0; .NET CLR 2.0.50727; SLCC2; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.3; .NET4.0C; Tablet PC 2.0; .NET4.0E)",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:6.0) Gecko/20100101 Firefox/6.0",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.163 Safari/535.1",
+        ]
+        useragent = random.choice(useragents)
+        request.headers["User-Agent"] = useragent
         # Called for each request that goes through the downloader
         # middleware.
 
@@ -78,7 +93,7 @@ class CsdnDownloaderMiddleware(object):
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-        return None
+        return request
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.

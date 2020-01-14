@@ -23,6 +23,8 @@ class CsdnPipeline(object):
         # logging.debug(item)
         if self.count>100:
             exit(0)
-
+        print(">"*30)
+        print(self.count)
+        print("="*30)
     def __del__(self):
         self.fp.close()
