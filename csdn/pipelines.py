@@ -6,7 +6,7 @@
 # See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 import logging
 from scrapy.exporters import JsonLinesItemExporter
-
+from scrapy import Spider
 logger = logging.getLogger(__name__)
 
 class CsdnPipeline(object):
@@ -16,15 +16,16 @@ class CsdnPipeline(object):
         self.count = 1
         pass
 
-    def process_item(self, item, spider):
+    def process_item(self, item, spider:Spider):
         logging.debug(">"*30)
         self.count+=1
         self.expoter.export_item(item)
+
         # logging.debug(item)
         if self.count>100:
-            exit(0)
-        print(">"*30)
-        print(self.count)
-        print("="*30)
+            spider.close(spider,"enough")
+        # print(">"*30)
+        # print(self.count)
+        # print("="*30)
     def __del__(self):
         self.fp.close()
