@@ -1,0 +1,2661 @@
+
+
+
+<!DOCTYPE html>
+
+
+
+
+
+
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="referrer" content="always">
+    <meta name="csdn-baidu-search" content='{"keyword":"ai"}'/>
+    <title id="csdnSearch"></title>
+    <script src="/so/js/tingyun-rum-so.js"></script>
+    <link href="//csdnimg.cn/public/common/libs/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="//csdnimg.cn/public/themes/default/css/common.css" rel="stylesheet">
+    <link href="//csdnimg.cn/public/common/toolbar/content_toolbar_css/content_toolbar.css" rel="stylesheet">
+    <link href="/so/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/so/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="//csdnimg.cn/public/favicon.ico" rel="SHORTCUT ICON">
+    <link rel="stylesheet" href="/so/css/introduction.css" media="screen" title="no title" charset="utf-8">
+    <link type="text/css" href="/so/css/main.css?20200115" rel="stylesheet">
+    <link href="/so/css/common.css?20181126456688" rel="stylesheet">
+    <script type="text/javascript">
+        var CFG = {
+            API_URL: "//so.csdn.net/so/"
+        }
+
+    </script>
+    <!-- 请置于所有广告位代码之前 -->
+    <script src="//dup.baidustatic.com/js/ds.js"></script>
+    <script type="text/javascript">
+        var _hmt = _hmt || [];
+        _hmt.push(['_setVisitTag', '256', 'search_csdn']);
+    </script>
+    <script src="//csdnimg.cn/public/common/libs/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="/so/js/jsonp.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/so/js/bootstrap.min.js"></script>
+    <script src="/so/js/ser_person.js?time=201904012" type="text/javascript"></script>
+    
+    
+    <script src="https://g.csdnimg.cn/report/1.0.6/report.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var loginname = getCookie('UserName');
+        var currentUserName = loginname;
+
+        function getCookie(objName) {
+            var arrStr = document.cookie.split("; ");
+            for (var i = 0; i < arrStr.length; i++) {
+                var temp = arrStr[i].split("=");
+                if (temp[0] == objName) {
+                    return decodeURI(temp[1]);
+                }
+            }
+        }
+
+        function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return unescape(r[2]);
+            return null;
+        }
+
+        // 获取url中的参数
+        function getUrlParam (name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+            var r = window.location.search.substr(1).match(reg);
+            if (r != null) return decodeURIComponent(r[2]); return null;
+        }
+
+        //var show_course = false;
+
+        $(document).ready(function () {
+
+            $("ul.search-type li").click(function () {
+                var ili = $(".search-type")[0].children.length;
+                for (var i = 0; i < ili; i++) {
+                    $(".search-type")[0].children[i].style.color = "#000000";
+                }
+
+                if (this.innerHTML == "头条") {
+
+                    // 			    		leavecode();
+                    $("#tt")[0].value = "news";
+                    $("#tb")[0].value = "news";
+
+                    $(".search-type")[0].children[4].style.color = "#990000";
+
+                    $("#ot")[0].value = $("input[name='o1']:checked").val();
+                    $("#ob")[0].value = $("input[name='o1']:checked").val();
+                    $("#st")[0].value = "";
+                    $("#sb")[0].value = "";
+
+                    $("#o_news")[0].style.display = "inline";
+                    $("#o_disscus_code")[0].style.display = "none";
+                    $("#o_edu")[0].style.display = "none";
+                    $("#o_blog")[0].style.display = "none";
+                    $('.search-addition-con').addClass('pad-con')
+                    $('.search-list-con').addClass('pad_top_con')
+                    $("#o_doc")[0].style.display = "none";
+                    // 			    		$("#o_ask")[0].style.display="none";
+                    $("input[name='o1']").each(function () {
+                        if ($(this).val() == "") {
+                            $(this).attr("checked", true);
+                        }
+                    });
+
+                } else if (this.innerHTML == "博客") {
+                    // 			    		leavecode();
+                    $("#tt")[0].value = "blog";
+                    $("#tb")[0].value = "blog";
+
+                    $(".search-type")[0].children[1].style.color = "#990000";
+
+                    $("#ot")[0].value = "";
+//                    $("#ot")[0].value = "hot";
+                    $("#ob")[0].value = "";
+                    $("#st")[0].value = "";
+                    $("#sb")[0].value = "";
+
+                    $("#o_blog")[0].style.display = "inline";
+                    $("#o_news")[0].style.display = "none";
+                    $("#o_disscus_code")[0].style.display = "none";
+                    $("#o_edu")[0].style.display = "none";
+                    $("#o_doc")[0].style.display = "none";
+                } else if (this.innerHTML == "学院") {
+                    // 			    		leavecode();
+                    $("#tt")[0].value = "course";
+                    $("#tb")[0].value = "course";
+
+                    $(".search-type")[0].children[4].style.color = "#990000";
+//                    $("#ot")[0].value = $("input[name='o4']:checked").val();
+//                    $("#ot")[0].value = "hot";
+                    $("#ot")[0].value = "";
+                    $("#ob")[0].value = $("input[name='o4']:checked").val();
+                    $("#st")[0].value = "";
+                    $("#sb")[0].value = "";
+                    $("#o_blog")[0].style.display = "none";
+                    $("#o_news")[0].style.display = "none";
+                    $("#o_disscus_code")[0].style.display = "none";
+                    $("#o_edu")[0].style.display = "inline";
+                    $("#o_doc")[0].style.display = "none";
+                } else if (this.innerHTML == "论坛") {
+                    // 			    		leavecode();
+                    $("#tt")[0].value = "discuss";
+                    $("#tb")[0].value = "discuss";
+
+                    $(".search-type")[0].children[3].style.color = "#990000";
+
+//                    $("#ot")[0].value = $("input[name='o1']:checked").val();
+//                    $("#ot")[0].value = "hot";
+                    $("#ot")[0].value = "";
+                    $("#ob")[0].value = $("input[name='o1']:checked").val();
+                    $("#st")[0].value = "";
+                    $("#sb")[0].value = "";
+
+                    $("#o_news")[0].style.display = "none";
+                    $("#o_disscus_code")[0].style.display = "inline";
+                    $("#o_doc")[0].style.display = "none";
+                    $("#o_edu")[0].style.display = "none";
+                    $("#o_blog")[0].style.display = "none";
+                    $('.search-addition-con').addClass('pad-con')
+                    $('.search-list-con').addClass('pad_top_con')
+                } else if (this.innerHTML == "下载") {
+                    // 			    		leavecode();
+                    $("#tt")[0].value = "doc";
+                    $("#tb")[0].value = "doc";
+
+                    $(".search-type")[0].children[2].style.color = "#990000";
+
+//                    $("#ot")[0].value = "";
+//                    $("#ot")[0].value = "hot";
+                    $("#ot")[0].value = "";
+                    $("#ob")[0].value = "";
+                    $("#st")[0].value = $("input[name='o3']:checked").val();
+                    $("#sb")[0].value = $("input[name='o3']:checked").val();
+
+                    $("#o_news")[0].style.display = "none";
+                    $("#o_disscus_code")[0].style.display = "none";
+                    $("#o_doc")[0].style.display = "none";
+                    $("#o_edu")[0].style.display = "none";
+                    $("#o_blog")[0].style.display = "none";
+                } else if (this.innerHTML == "问答") {
+                    $("#tt")[0].value = "ask";
+                    $("#tb")[0].value = "ask";
+
+                    $(".search-type")[0].children[5].style.color = "#990000";
+
+//                    $("#ot")[0].value = "";
+//                    $("#ot")[0].value = "hot";
+                    $("#ot")[0].value = "";
+                    $("#ob")[0].value = "";
+
+                    $("#o_news")[0].style.display = "none";
+                    $("#o_disscus_code")[0].style.display = "none";
+                    $("#o_doc")[0].style.display = "none";
+                    $("#o_edu")[0].style.display = "none";
+                    $("#o_blog")[0].style.display = "none";
+                }
+                // else if (this.innerHTML == "图文课") {
+                //     $("#tt")[0].value = "gitchat";
+                //     $("#tb")[0].value = "gitchat";
+                //
+                //     $(".search-type")[0].children[5].style.color = "#990000";
+                //
+                //     $("#ot")[0].value = "";
+                //     $("#ob")[0].value = "";
+                //
+                //     $("#o_news")[0].style.display = "none";
+                //     $("#o_disscus_code")[0].style.display = "none";
+                //     $("#o_doc")[0].style.display = "none";
+                //     $("#o_edu")[0].style.display = "none";
+                //     $("#o_blog")[0].style.display = "none";
+                // }
+                else {
+                    $("#tt")[0].value = "";
+                    $("#tb")[0].value = "";
+
+                    $(".search-type")[0].children[0].style.color = "#990000";
+
+                    $("#ot")[0].value = "";
+                    $("#ob")[0].value = "";
+                    $("#st")[0].value = "";
+                    $("#sb")[0].value = "";
+
+                    $("#o_news")[0].style.display = "none";
+                    $("#o_disscus_code")[0].style.display = "none";
+                    $("#o_doc")[0].style.display = "none";
+                    $("#o_edu")[0].style.display = "none";
+                    $("#o_blog")[0].style.display = "none";
+                }
+                document.search_form_1.submit();
+            });
+        });
+
+        function changeOrder(value) {
+            $("#ot")[0].value = value;
+            $("#ob")[0].value = value;
+
+            document.search_form_1.submit();
+        }
+
+        function vipArticle(value) {
+            debugger;
+            if(value==""){
+                value="viparticle";
+            }else{
+                value="";
+            }
+            $("#viparticle")[0].value = value;
+            document.search_form_1.submit();
+        }
+        function changeTime(value) {
+            $("#ft")[0].value = value
+            document.search_form_1.submit();
+        }
+
+        function changeDocOrder(value) {
+            $("#st")[0].value = value;
+            $("#sb")[0].value = value;
+
+            document.search_form_1.submit();
+        }
+
+        // 加载种类
+        function loadCategory () {
+            var o = GetQueryString("o");
+            if (o === 'hot' ) {
+                $('#select-text').text('最热');
+                $('#hottest .drop-down-menu li').removeClass('current').eq(0).addClass('current');
+            } else if (o === 'new') {
+                $('#select-text').text('最新');
+                $('#hottest .drop-down-menu li').removeClass('current').eq(1).addClass('current');
+            } else if (o === 'vip') {
+                $('#select-text').text('会员专享');
+                $('#hottest .drop-down-menu li').removeClass('current').eq(2).addClass('current');
+            }
+        }
+
+        // 赋值搜索内容给toolbar搜索框
+        function loadSearchContent () {
+            var q = getUrlParam("q");
+            if (q !== '') {
+                $('.search_bar .input_search').val(q);
+            }
+        }
+
+        $(document).ready(function () {
+
+            var ili = $(".search-type")[0].children.length;
+            var t = GetQueryString("t");
+            loadSearchContent();
+            loadCategory();
+            if (t == "news") {
+//                $(".search-type")[0].children[4].style.color = "#990000";
+                $(".search-type")[0].children[4].className += 'current';
+
+                $("#o_news")[0].style.display = "inline";
+                $("#o_disscus_code")[0].style.display = "none";
+                $("#o_doc")[0].style.display = "none";
+                $("#o_blog")[0].style.display = "none";
+                $('.search-addition-con').addClass('pad-con')
+                $('.search-list-con').addClass('pad_top_con')
+                $("input[name='o1']").each(function () {
+                    if ($(this).val() == "") {
+                        $(this).attr("checked", true);
+                    }
+                });
+            } else if (t == "blog") {
+                $('#hottest').show();
+//                $(".search-type")[0].children[1].style.color = "#990000";
+                $(".search-type")[0].children[1].className += 'current';
+
+                $("#o_news")[0].style.display = "none";
+                $("#o_disscus_code")[0].style.display = "none";
+                $("#o_doc")[0].style.display = "none";
+                $("#o_blog")[0].style.display = "inline";
+                // $('.qiye_search').addClass('margintop')
+
+            } else if (t == "course") {
+                $('#hottest').show();
+//                $(".search-type")[0].children[4].style.color = "#990000";
+                $(".search-type")[0].children[4].className += 'current';
+
+                $("#o_news")[0].style.display = "none";
+                $("#o_disscus_code")[0].style.display = "none";
+                $("#o_doc")[0].style.display = "none";
+                $("#o_blog")[0].style.display = "none";
+                $("#o_edu")[0].style.display = "inline";
+                $('.search-addition-con').addClass('pad-con')
+                $('.search-list-con').addClass('pad_top_con')
+                $("input[name='o4']").each(function () {
+                    if ($(this).val() == "") {
+                        $(this).attr("checked", true)
+                    }
+                });
+            } else if (t == "ask") {
+                $('#hottest li:eq(2)').hide();
+                $('#hottest').show();
+//                $(".search-type")[0].children[5].style.color = "#990000";
+                $(".search-type")[0].children[5].className += 'current';
+
+                $("#o_news")[0].style.display = "none";
+                $("#o_blog")[0].style.display = "none";
+                $("#o_disscus_code")[0].style.display = "none";
+                $("#o_doc")[0].style.display = "none";
+                $("#search-addition-id")[0].style.display = "none";
+            }
+            // else if (t == "gitchat") {
+            //     $(".search-type")[0].children[6].style.color = "#990000";
+            //
+            //     $("#o_news")[0].style.display = "none";
+            //     $("#o_disscus_code")[0].style.display = "none";
+            //     $("#o_doc")[0].style.display = "none";
+            //     $("#o_blog")[0].style.display = "none";
+            //     $("#search-addition-id")[0].style.display = "none";
+            // }
+            else if (t == "discuss") {
+                $('#hottest li:eq(2)').hide();
+                $('#hottest').show();
+//                $(".search-type")[0].children[3].style.color = "#990000";
+                $(".search-type")[0].children[3].className += 'current';
+
+                $("#o_news")[0].style.display = "none";
+                $("#o_disscus_code")[0].style.display = "inline";
+                $("#o_doc")[0].style.display = "none";
+                $("#o_blog")[0].style.display = "none";
+                $('.search-addition-con').addClass('pad-con')
+                $('.search-list-con').addClass('pad_top_con')
+                $("input[name='o2']").each(function () {
+                    if ($(this).val() == "") {
+                        $(this).attr("checked", true)
+                    }
+                });
+            } else if (t == "code") {
+//                $(".search-type")[0].children[3].style.color = "#990000";
+                $(".search-type")[0].children[3].className += 'current';
+
+                $("#o_news")[0].style.display = "none";
+                $("#o_disscus_code")[0].style.display = "none";
+                $("#o_doc")[0].style.display = "none";
+                $("#o_blog")[0].style.display = "none";
+                $("input[name='o2']").each(function () {
+                    if ($(this).val() == "") {
+                        $(this).attr("checked", true)
+                    }
+                });
+            } else if (t == "doc") {
+                $('#hottest li:eq(2)').hide();
+                $('#hottest').show();
+//                $(".search-type")[0].children[2].style.color = "#990000";
+                $(".search-type")[0].children[2].className += 'current';
+
+                $("#o_news")[0].style.display = "none";
+                $("#o_disscus_code")[0].style.display = "none";
+                $("#o_doc")[0].style.display = "none";
+                $("#o_blog")[0].style.display = "none";
+                $("#search-addition-id")[0].style.display = "none";
+                $("input[name='o3']").each(function () {
+                    if ($(this).val() == "") {
+                        $(this).attr("checked", true);
+                    }
+                });
+            } else {
+//                $('#hottest').hide();
+                $(".search-type")[0].children[0].className += 'current';
+//                $(".search-type")[0].children[0].style.color = "#990000";
+
+                $("#o_news")[0].style.display = "none";
+                $("#o_disscus_code")[0].style.display = "none";
+                $("#o_doc")[0].style.display = "none";
+                $("#o_blog")[0].style.display = "none";
+                $("#search-addition-id")[0].style.display = "none";
+            }
+        });
+
+        $(function () {
+            //注销自动提示代码
+        });
+
+        $(".search-type").find('li').hover(function () {
+            $(this).css("color", "rgb(153, 0, 0);");
+        }, function () {
+            $(this).css("color", "rgb(153, 0, 0);");
+        })
+    </script>
+
+</head>
+<body>
+
+<script id="toolbar-tpl-scriptId" prod="so" skin="black" src="//csdnimg.cn/public/common/toolbar/js/content_toolbar.js"
+        domain="//so.csdn.net/so/" type="text/javascript"></script>
+
+<div class="topadv">
+    <!-- 广告位开始 -->
+    <ins data-revive-zoneid="154" data-revive-id="8c38e720de1c90a6f6ff52f3f89c4d57"></ins>
+    <!-- 广告位结束 -->
+</div>
+<div class="new_topbox">
+    <div class="new_topbox_navbar">
+        <div class="new_topbox_container clearfix">
+            <div id="csdn_tool_otherPlace"></div>
+            <ul class="search-type fl clearfix">
+                <li>全部</li>
+                <li>博客</li>
+                <li>下载</li>
+                <li>论坛</li>
+                <li>学院</li>
+                <li>问答</li>
+                
+            </ul>
+            <div id="hottest" class="hottest fl">
+                
+                <div id="select-text">最热</div>
+                <ul class="drop-down-menu">
+                    
+                    <li class="current" data-value="">最热</li>
+                    <li data-value="new">最新</li>
+                    <li data-value="vip">会员专享</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="search-from2 fr" style="position:relative; display: none;">
+        <form id="search_form_1" name="search_form_1">
+            <div class="search-text-con2" style="position:relative">
+                <input type="text" path="q" class="search-text2" id="keyword" name="q"
+                       autocomplete="off"/>
+                <input type="hidden" id="tt" name="t"
+                       value=""/>
+                <input type="hidden" id="ot" name="o"
+                       value=""/>
+                <input type="hidden" id="st" name="s"
+                       value=""/>
+                <input type="hidden" id="lant" name="l"
+                       value=""/>
+                <input type="hidden" id="ft" name="f"
+                       value=""/>
+                <input type="hidden" id="viparticle" name="viparticle"
+                       value=""/>
+                <ul class="search-suggest2" id="search-suggest2" style="top: 32px"></ul>
+            </div>
+            <div class="search-btn-con2"
+                 data-report-click='{"mod":"popu_172","dest":"","strategy":"","index":""}'>
+                <input type="Submit" value="搜一搜" class="search-btn2">
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="main-container">
+    <!--con-l start{-->
+    <div class="con-l">
+        <div id="search-addition-id" style="display: none;" class="search-addition-con">
+            <div id="o_blog" style="display:none" class="search-addition">
+                
+                <em>
+                    <select style="margin-top:8px;margin-right:20px;width:120px;height:28px;background:rgba(255,255,255,1);border-radius:4px;border:1px solid rgba(204,204,204,1);font-size:14px;font-weight:400;color:rgba(77,77,77,1)"
+                            onchange="changeTime(this.value);">
+                        <option selected disabled hidden>时间筛选</option>
+                        <option id="all" value="all" onclick="this.blur();"
+                                 >全部数据
+                        </option>
+                        <option id="week" value="week" onclick="this.blur();"
+                                 >最近一周
+                        </option>
+                        <option id="month" value="month" onclick="this.blur();"
+                                 >最近三月
+                        </option>
+                        <option id="year" value="year" onclick="this.blur();"
+                                  >最近半年
+                        </option>
+                    </select>
+                </em>
+                <div style="width: 96px;height: 20px;float: right;margin-top: 12px;">
+                    <span style="font-size: 14px;">VIP文章 </span>
+                    <input class="checkbox" type="checkbox" value="" onchange="vipArticle(this.value);" />
+                </div>
+
+            </div>
+            <div id="o_news" style="display:none" class="search-addition">
+                <span>按时间排序 </span><em><input type="radio" name="o1" value="time"
+                                              onchange="changeOrder(this.value);"
+                                              onClick="this.blur();"></em>
+                <span>按相关度排序</span> <em><input type="radio" name="o1" value="simi"
+                                               onchange="changeOrder(this.value);"
+                                               onClick="this.blur();" checked></em>
+            </div>
+            <div id="o_disscus_code" style="display:none" class="search-addition">
+                <span>按回复数排序</span>
+                <em><input type="radio" name="o2" value="reply"
+                           onchange="changeOrder(this.value);" onClick="this.blur();"></em>
+
+                <span>按相关度排序 </span>
+                <em><input type="radio" name="o2" value="simi"
+                           onchange="changeOrder(this.value);" onClick="this.blur();"
+                           checked></em>
+
+            </div>
+            <div id="o_doc" style="display:none" class="search-addition">
+                <span>工具类</span><em><input type="radio" name="o3" value="3" onchange="changeDocOrder(this.value);"
+                                           onClick="this.blur();"></em>
+                <span>代码类</span><em><input type="radio" name="o3" value="2" onchange="changeDocOrder(this.value);"
+                                           onClick="this.blur();"></em>
+                <span>文档</span> <em><input type="radio" name="o3" value="1" onchange="changeDocOrder(this.value);"
+                                           onClick="this.blur();"></em>
+                <span>全部</span>
+                <em><input type="radio" name="o3" value="all" onchange="changeDocOrder(this.value);"
+                           onClick="this.blur();" checked></em>
+            </div>
+            <div id="o_edu" style="display:none" class="search-addition">
+                <span>VIP免费看 </span>
+                <em>
+                    <input type="radio" name="o4" value="vipfree" onchange="changeOrder(this.value);"
+                           onClick="this.blur();">
+                </em>
+                <span>按人气排序</span>
+                <em>
+                    <input type="radio" name="o4" value="stucount" onchange="changeOrder(this.value);"
+                           onClick="this.blur();">
+                </em>
+                <span>按时间排序 </span>
+                <em>
+                    <input type="radio" name="o4" value="time" onchange="changeOrder(this.value);"
+                           onClick="this.blur();">
+                </em>
+                <span>按相关度排序 </span>
+                <em>
+                    <input type="radio" name="o4" value="simi" onchange="changeOrder(this.value);"
+                           onClick="this.blur();" checked>
+                </em>
+
+            </div>
+        </div>
+        
+        <div
+                 class="search-list-con"
+
+                
+                
+                
+                
+                
+                
+        
+                 >
+
+            
+
+            
+                
+                    <div class="qiye_search"
+                         data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/dQCFKyQDXYm3F8rB0","strategy":"companyblog","index":"0","biz_id":"","ops_request_misc":"","request_id":""}'
+                         data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/dQCFKyQDXYm3F8rB0","strategy":"companyblog","index":"0","biz_id":"","ops_request_misc":"","request_id":""}'>
+                        <a href="https://blog.csdn.net/dQCFKyQDXYm3F8rB0" class="link1" target="_blank">
+                            <img src="https://avatar.csdn.net/6/9/F/3_dqcfkyqdxym3f8rb0.jpg" alt="" class="header">
+                            <div class="mid_con">
+                                <div class="top_cont">
+                                    <span class="user_name">AI科技大本营</span>
+                                    <img src="/so/images/qy.png" alt="csdn企业搜索图标" class="qy_icon"/><span
+                                        class="qybk">
+                                    
+                                        
+                                        
+                                            媒体
+                                        
+                                    
+                                </span>
+                                </div>
+                                <div class="bot_con">
+                                    <span>https://blog.csdn.net/dQCFKyQDXYm3F8rB0</span>
+                                </div>
+
+                            </div>
+                        </a>
+                        
+                        
+                        
+
+                    </div>
+                
+                
+            
+
+
+            
+                
+                
+
+                
+
+                
+                
+                    <dl class="search-list"
+                        data-report-view='{"mod":"popu_271","dest":"https://edu.csdn.net/course/detail/8400","strategy":"SOOPENSEARCH","index":"0","biz_id":"3","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726874051132%22%2C%22scm%22%3A%2220140713.130063507..%22%7D","request_id":"158133427319726874051132"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://edu.csdn.net/course/detail/8400","strategy":"SOOPENSEARCH","index":"0","biz_id":"3","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726874051132%22%2C%22scm%22%3A%2220140713.130063507..%22%7D","request_id":"158133427319726874051132"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon3">学院</span>
+                            <a href="https://edu.csdn.net/course/detail/8400" target="_blank">8小时零基础快速转型<em>AI</em></a>
+                            <a href="https://edu.csdn.net/course/detail/8400" target="_blank">&nbsp;-&nbsp;CSDN学院</a>
+                        </div>
+                        </dt>
+                        <dd class="course_pic">
+                            <a href="https://edu.csdn.net/course/detail/8400" target="_blank">
+
+                                
+                                    <img src="https://img-bss.csdn.net/20191113111149194.jpg">
+                                
+                                
+                            </a>
+                        </dd>
+                        <dd class="search-detail course_search_detail college">在未来，AI技术可能会成为程序员的知识。那么现在热门的机器学习、深度学习是什么？我们要怎么学习，如何转型AI领域？如何掌握其核心算法并应用于实战？ 
+转型AI技术内参视频指导教程，以AI基本知识点+经典算法推导与案例实战紧密结合，结合主流框架Tensorflow，选择经典项目实战图片识别；使用OpenCV构建视觉应用；掌握朋友圈爆款背后的计算机视觉技术与应用。</dd>
+                        <dd class="author-time class-so-a">
+                            <span class="author">讲师：</span>
+                            <a href="https://edu.csdn.net/lecturer/lecturer_detail?lecturer_id=601" target="_blank">CSDN讲师</a>
+                            
+                            
+                            <span class="attr">学员：</span>
+                            <span>8362人在学习</span>
+                            
+                        </dd>
+                        
+                        
+                        
+                    </dl>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/qq_44187970/article/details/90547565","strategy":"SOOPENSEARCH","index":"1","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/qq_44187970/article/details/90547565","strategy":"SOOPENSEARCH","index":"1","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon1">博客</span>
+                            <a href="https://blog.csdn.net/qq_44187970/article/details/90547565" target="_blank"><em>AI</em></a>
+                            <a href="https://blog.csdn.net/qq_44187970/article/details/90547565" target="_blank">&nbsp;-&nbsp;CSDN博客</a>
+                        </div>
+                        </dt>
+
+                        <dd class="search-detail">AI智慧未来 纵观整个人工智能(AI)的发展史 从人工智能的起源到现在的再度回归 AI已从一粒种子经历了不少磨炼 发展到现在也难能可贵，AI这次携手大数据 
+深度学习定会创造一个新的未来. 
+AI看似遥远其实已经来到了我们的身边，比如我们现在家家户户手机上的人脸识别，还有我们现在的语音助手，搜索引擎，还有我们的聊天机器人，还有就是马上就要登陆市场的AI自动驾驶,这些AI辅助人的，都统称为“弱人工智能"...</dd>
+                            
+                            
+                            
+
+                            <dd class="author-time">
+                                <span class="author">作者：</span>
+                                <a href="http://blog.csdn.net/qq_44187970" target="_blank">qq_44187970</a>
+                                
+                                
+                                <span class="attr">浏览量：</span><span class="mr16">1391</span>
+                                
+                                <span class="attr">时间：</span><span class="date">2019-05-25</span>
+                                
+                            </dd>
+
+                        
+                    </dl>
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/alice_tl/article/details/78494691","strategy":"SOOPENSEARCH","index":"2","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/alice_tl/article/details/78494691","strategy":"SOOPENSEARCH","index":"2","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon1">博客</span>
+                            <a href="https://blog.csdn.net/alice_tl/article/details/78494691" target="_blank"><em>AI</em>基本概念和应用</a>
+                            <a href="https://blog.csdn.net/alice_tl/article/details/78494691" target="_blank">&nbsp;-&nbsp;CSDN博客</a>
+                        </div>
+                        </dt>
+
+                        <dd class="search-detail">AI 的发展势头 5.17日美国旧金山Google I/O 大会上，Google CEO 开场就再次强调了公司战略从“Mobile first to AI 
+first”，称 Google 会因此重新思考自己的所有产品，还要把人工智能用到学术研究、医学的层面。所以会议上十几项新产品的宣布，都是在展示 AI 的成果。 
+近一个月内的新闻AI 也是热门。 迪拜机场 CEO：AI 时代，机场安检和入...</dd>
+                            
+                            
+                            
+
+                            <dd class="author-time">
+                                <span class="author">作者：</span>
+                                <a href="http://blog.csdn.net/alice_tl" target="_blank">alice_tl</a>
+                                
+                                
+                                <span class="attr">浏览量：</span><span class="mr16">3267</span>
+                                
+                                <span class="attr">时间：</span><span class="date">2019-10-19</span>
+                                
+                            </dd>
+
+                        
+                    </dl>
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+
+                
+
+                
+                    <dl class="search-list J_search" style="overflow: hidden"
+                        data-report-view='{"mod":"popu_271","dest":"https://download.csdn.net/download/helloctf/2560945","strategy":"SOOPENSEARCH","index":"3","biz_id":"1","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725256700711%22%2C%22scm%22%3A%2220140713.130062587..%22%7D","request_id":"158133427319725256700711"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://download.csdn.net/download/helloctf/2560945","strategy":"SOOPENSEARCH","index":"3","biz_id":"1","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725256700711%22%2C%22scm%22%3A%2220140713.130062587..%22%7D","request_id":"158133427319725256700711"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon6">下载</span>
+                            <a href="https://download.csdn.net/download/helloctf/2560945" target="_blank"><em>AI</em>3<em>AI</em>3<em>AI</em>3<em>AI</em>3</a>
+                            <a href="https://download.csdn.net/download/helloctf/2560945" target="_blank">&nbsp;-&nbsp;CSDN下载</a>
+                        </div>
+                        </dt>
+
+
+
+
+
+
+
+                            
+                                
+                            
+                            <div class="fr_box">
+                                <dd class="search-detail">AI3AI3AI3AI3AI3AI3AI3AI3AI3AI3</dd>
+                                <dd class="author-time">
+                                    <span class="author">作者：</span>
+                                    <a href="http://my.csdn.net/helloctf" target="_blank">helloctf</a>
+                                    
+                                    <span class="attr">格式：</span>
+                                    <span class="mr16 file-style">其他</span>
+                                    
+                                    <span class="attr">大小：</span>
+                                    <span class="mr16">8.10M</span>
+                                    
+                                    <span class="attr">时间：</span>
+                                    <span class="date">2010-07-21</span>
+                                    
+                                            
+                                    
+                                </dd>
+                            </div>
+
+                        
+                    </dl>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/showersh/article/details/78840650","strategy":"SOOPENSEARCH","index":"4","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/showersh/article/details/78840650","strategy":"SOOPENSEARCH","index":"4","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon1">博客</span>
+                            <a href="https://blog.csdn.net/showersh/article/details/78840650" target="_blank"><em>AI</em>开发入门路线</a>
+                            <a href="https://blog.csdn.net/showersh/article/details/78840650" target="_blank">&nbsp;-&nbsp;CSDN博客</a>
+                        </div>
+                        </dt>
+
+                        <dd class="search-detail">
+AI开发入门路线概述教程相关资源http://ai.baidu.com/http://console.bce.baidu.com/ai/?fromai=1#/ai/kg/overview/index引用https://ai.baidu.com/docs#/Begin/top</dd>
+                            
+                            
+                            
+
+                            <dd class="author-time">
+                                <span class="author">作者：</span>
+                                <a href="http://blog.csdn.net/showersh" target="_blank">showersh</a>
+                                
+                                
+                                <span class="attr">浏览量：</span><span class="mr16">247</span>
+                                
+                                <span class="attr">时间：</span><span class="date">2017-12-19</span>
+                                
+                            </dd>
+
+                        
+                    </dl>
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+
+                
+
+                
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://edu.csdn.net/course/detail/25243","strategy":"SOOPENSEARCH","index":"5","biz_id":"3","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726874051132%22%2C%22scm%22%3A%2220140713.130063507..%22%7D","request_id":"158133427319726874051132"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://edu.csdn.net/course/detail/25243","strategy":"SOOPENSEARCH","index":"5","biz_id":"3","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726874051132%22%2C%22scm%22%3A%2220140713.130063507..%22%7D","request_id":"158133427319726874051132"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon3">学院</span>
+                            <a href="https://edu.csdn.net/course/detail/25243" target="_blank"><em>AI</em>核心技术掌握</a>
+                            <a href="https://edu.csdn.net/course/detail/25243" target="_blank">&nbsp;&nbsp;-&nbsp;CSDN学院</a>
+                        </div>
+                        </dt>
+                        <dd class="course_pic">
+                            <a href="https://edu.csdn.net/course/detail/25243" target="_blank">
+                                
+                                    <img src="https://img-bss.csdn.net/20191112174811725.jpg">
+                                
+                                
+                            </a>
+                        </dd>
+                        <dd class="search-detail course_search_detail college">从前馈神经网络到反向传播，再到循环神经网络，强化学习、深度学习，学生可以通过「AI 核心技术掌握」这系列课程，迈入人工智能的大门。</dd>
+
+                        <dd class="author-time class-so-a">
+                            <span class="author">讲师：</span><a href="https://edu.csdn.net/lecturer/lecturer_detail?lecturer_id=3699"
+                                                       target="_blank" class="teacher">丁进</a>
+                            
+                                
+                                
+                            
+                
+                
+                            
+                            <span class="attr">学员：</span><span>2759人在学习</span>
+                        </dd>
+                        
+                    </dl>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/jgw2008/article/details/84618256","strategy":"SOOPENSEARCH","index":"6","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/jgw2008/article/details/84618256","strategy":"SOOPENSEARCH","index":"6","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon1">博客</span>
+                            <a href="https://blog.csdn.net/jgw2008/article/details/84618256" target="_blank"><em>AI</em>学习资料汇总</a>
+                            <a href="https://blog.csdn.net/jgw2008/article/details/84618256" target="_blank">&nbsp;-&nbsp;CSDN博客</a>
+                        </div>
+                        </dt>
+
+                        <dd class="search-detail">这里列出一些自己已经看过或者正在看的一些好的网站和书籍，以备忘， 一。基础书籍 1。人工智能：李开复谈AI如何重塑个人、商业与社会的未来图谱，李开复 
+(作者), 王咏刚 (作者) 
+李博士是上世纪末搞人工智能的顶级专家，近些年来，也大力扶植AI的初创公司，对于AI技术以及对社会的影响有着深刻而独到的理解。这本书可以作为AI科普读物，里面没有包含复杂的概念和高深的学术知识，但是可以告诉我们AI的...</dd>
+                            
+                            
+                            
+
+                            <dd class="author-time">
+                                <span class="author">作者：</span>
+                                <a href="http://blog.csdn.net/jgw2008" target="_blank">jgw2008</a>
+                                
+                                
+                                <span class="attr">浏览量：</span><span class="mr16">630</span>
+                                
+                                <span class="attr">时间：</span><span class="date">2018-11-29</span>
+                                
+                            </dd>
+
+                        
+                    </dl>
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/rain_web/article/details/80535769","strategy":"SOOPENSEARCH","index":"7","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/rain_web/article/details/80535769","strategy":"SOOPENSEARCH","index":"7","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon1">博客</span>
+                            <a href="https://blog.csdn.net/rain_web/article/details/80535769" target="_blank">我与百度<em>AI</em>的故事-在<em>AI</em>社区的发帖</a>
+                            <a href="https://blog.csdn.net/rain_web/article/details/80535769" target="_blank">&nbsp;-&nbsp;CSDN博客</a>
+                        </div>
+                        </dt>
+
+                        <dd class="search-detail">
+关注百度AI很久了，自己是学计算机的，所以对深度学习这块一直在学习，但做不到百度AI这个全面，完善，当百度第一次提出人脸识别免费时，我就想做一个能够将百度AI里所有功能都实现出来的网站，方便调用，调试，因为百度本身虽然提供了测试，但没有集中起来，用某些功能就需要去具体的找，有的可能还找不到，我做这个能更方便大家了解，使用百度的AI。 
+Rain-AI 2017年12月左右开始用PHP做这个，...</dd>
+                            
+                            
+                            
+
+                            <dd class="author-time">
+                                <span class="author">作者：</span>
+                                <a href="http://blog.csdn.net/rain_web" target="_blank">rain_web</a>
+                                
+                                
+                                <span class="attr">浏览量：</span><span class="mr16">13802</span>
+                                
+                                <span class="attr">时间：</span><span class="date">2018-06-01</span>
+                                
+                            </dd>
+
+                        
+                    </dl>
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/smilewsw/article/details/38389519","strategy":"SOOPENSEARCH","index":"8","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/smilewsw/article/details/38389519","strategy":"SOOPENSEARCH","index":"8","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon1">博客</span>
+                            <a href="https://blog.csdn.net/smilewsw/article/details/38389519" target="_blank">五子棋<em>AI</em>大赛</a>
+                            <a href="https://blog.csdn.net/smilewsw/article/details/38389519" target="_blank">&nbsp;-&nbsp;CSDN博客</a>
+                        </div>
+                        </dt>
+
+                        <dd class="search-detail">A. 五子棋AI格式 2014新生暑假个人排位赛10 时间限制 1000 ms 内存限制 65536 KB 题目描述 
+设计五子棋AI是一个很简单但是也很考验编程设计功底的事，今天的排位赛就让大家来设计一个五子棋AI。 
+相信现场的每个人都玩过五子棋，没有玩过的可以现在去玩：http://www.4399.com/special/159.htm 不同的人玩五子棋可能有不同</dd>
+                            
+                            
+                            
+
+                            <dd class="author-time">
+                                <span class="author">作者：</span>
+                                <a href="http://blog.csdn.net/smilewsw" target="_blank">smilewsw</a>
+                                
+                                
+                                <span class="attr">浏览量：</span><span class="mr16">1043</span>
+                                
+                                <span class="attr">时间：</span><span class="date">2014-08-05</span>
+                                
+                            </dd>
+
+                        
+                    </dl>
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/chybin500/article/details/78468469","strategy":"SOOPENSEARCH","index":"9","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/chybin500/article/details/78468469","strategy":"SOOPENSEARCH","index":"9","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon1">博客</span>
+                            <a href="https://blog.csdn.net/chybin500/article/details/78468469" target="_blank"><em>AI</em>学习路线图【目录】</a>
+                            <a href="https://blog.csdn.net/chybin500/article/details/78468469" target="_blank">&nbsp;-&nbsp;CSDN博客</a>
+                        </div>
+                        </dt>
+
+                        <dd class="search-detail">一、Python 1.1、【AI_Python基本语法】 【AI_Python基本语法】 1.2、【AI_常用Python库】 
+【AI_常用Python库】Numpy库 【AI_常用Python库】Pandas库 【AI_常用Python库】Matplotlib库 
+【AI_常用Python库】Time库 二、数学知识 2.1 【AI_数学知识】数学分析</dd>
+                            
+                            
+                            
+
+                            <dd class="author-time">
+                                <span class="author">作者：</span>
+                                <a href="http://blog.csdn.net/chybin500" target="_blank">chybin500</a>
+                                
+                                
+                                <span class="attr">浏览量：</span><span class="mr16">3498</span>
+                                
+                                <span class="attr">时间：</span><span class="date">2017-11-07</span>
+                                
+                            </dd>
+
+                        
+                    </dl>
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+
+                
+
+                
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://edu.csdn.net/course/detail/7709","strategy":"SOOPENSEARCH","index":"10","biz_id":"3","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726874051132%22%2C%22scm%22%3A%2220140713.130063507..%22%7D","request_id":"158133427319726874051132"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://edu.csdn.net/course/detail/7709","strategy":"SOOPENSEARCH","index":"10","biz_id":"3","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726874051132%22%2C%22scm%22%3A%2220140713.130063507..%22%7D","request_id":"158133427319726874051132"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon3">学院</span>
+                            <a href="https://edu.csdn.net/course/detail/7709" target="_blank"><em>AI</em>工程师百天计划</a>
+                            <a href="https://edu.csdn.net/course/detail/7709" target="_blank">&nbsp;&nbsp;-&nbsp;CSDN学院</a>
+                        </div>
+                        </dt>
+                        <dd class="course_pic">
+                            <a href="https://edu.csdn.net/course/detail/7709" target="_blank">
+                                
+                                    <img src="https://img-bss.csdn.net/20191112172112840.jpg">
+                                
+                                
+                            </a>
+                        </dd>
+                        <dd class="search-detail course_search_detail college">
+众所周知国内大量的、一线的互联网公司已经在布局机器学习团队，优化智能产品，在这样的背景下，不难想象，未来机器学习技术将会是技术人的新门槛和领域。不过，跟移动开发不同，AI工程师要求严苛的数学门槛，成本高昂的实战训练，令AI人才的培养周期猛增至5年以上……似乎没有硕士、博士的知识储备，就一定要跟AI相关的技术工作说再见了。实情果真如此吗？</dd>
+
+                        <dd class="author-time class-so-a">
+                            <span class="author">讲师：</span><a href="https://edu.csdn.net/lecturer/lecturer_detail?lecturer_id=1907"
+                                                       target="_blank" class="teacher">CSDN就业班</a>
+                            
+                                
+                                
+                            
+                
+                
+                            
+                            <span class="attr">学员：</span><span>3032人在学习</span>
+                        </dd>
+                        
+                    </dl>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/weixin_42717395/article/details/89740418","strategy":"SOOPENSEARCH","index":"11","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/weixin_42717395/article/details/89740418","strategy":"SOOPENSEARCH","index":"11","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon1">博客</span>
+                            <a href="https://blog.csdn.net/weixin_42717395/article/details/89740418" target="_blank"><em>AI</em> 行业发展趋势和人才需求预测</a>
+                            <a href="https://blog.csdn.net/weixin_42717395/article/details/89740418" target="_blank">&nbsp;-&nbsp;CSDN博客</a>
+                        </div>
+                        </dt>
+
+                        <dd class="search-detail">AI找工作必看，AI 行业发展趋势和人才需求预测 
+近几年AI行业的火热程度大家有目共睹，越来越多的人想要加入这一行业。但在开始之前，我们要有理性的分析，要了解AI行业需要什么样的人才，也要知道如何在AI行业中如何长久的发展立足，相信大家和小编一样会在这篇文章中找到自己的答案。 
+为什么写这篇文章呢？ 一、是想为视角偏局限或者刚入局的年轻人提供一个参考，助其冷静，不悲观也不上头，因为...</dd>
+                            
+                            
+                            
+
+                            <dd class="author-time">
+                                <span class="author">作者：</span>
+                                <a href="http://blog.csdn.net/weixin_42717395" target="_blank">weixin_42717395</a>
+                                
+                                
+                                <span class="attr">浏览量：</span><span class="mr16">477</span>
+                                
+                                <span class="attr">时间：</span><span class="date">2019-05-01</span>
+                                
+                            </dd>
+
+                        
+                    </dl>
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/jgw2008/article/details/97639207","strategy":"SOOPENSEARCH","index":"12","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/jgw2008/article/details/97639207","strategy":"SOOPENSEARCH","index":"12","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon1">博客</span>
+                            <a href="https://blog.csdn.net/jgw2008/article/details/97639207" target="_blank"><em>AI</em>在线编辑运行的网站集合</a>
+                            <a href="https://blog.csdn.net/jgw2008/article/details/97639207" target="_blank">&nbsp;-&nbsp;CSDN博客</a>
+                        </div>
+                        </dt>
+
+                        <dd class="search-detail">AI学习，对于电脑和网络的要求愈来愈高，幸运的是，国内一些公司针对这一痛点已经有了解决方案，而且还是免费的，同时还提供了sample 
+code和数据，这真是AI学习的一大福音。 下面列出一些比较好的网站， 1. AI Studio （百度出品，已经安装PaddlePaddle） 
+https://aistudio.baidu.com/aistudio/index 2. 科赛网K-Lab h...</dd>
+                            
+                            
+                            
+
+                            <dd class="author-time">
+                                <span class="author">作者：</span>
+                                <a href="http://blog.csdn.net/jgw2008" target="_blank">jgw2008</a>
+                                
+                                
+                                <span class="attr">浏览量：</span><span class="mr16">390</span>
+                                
+                                <span class="attr">时间：</span><span class="date">2019-07-29</span>
+                                
+                            </dd>
+
+                        
+                    </dl>
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://blog.csdn.net/half_step/article/details/83716864","strategy":"SOOPENSEARCH","index":"13","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://blog.csdn.net/half_step/article/details/83716864","strategy":"SOOPENSEARCH","index":"13","biz_id":"0","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725211963764%22%2C%22scm%22%3A%2220140713.130056874..%22%7D","request_id":"158133427319725211963764"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon1">博客</span>
+                            <a href="https://blog.csdn.net/half_step/article/details/83716864" target="_blank"><em>AI</em>安全的修炼之路</a>
+                            <a href="https://blog.csdn.net/half_step/article/details/83716864" target="_blank">&nbsp;-&nbsp;CSDN博客</a>
+                        </div>
+                        </dt>
+
+                        <dd class="search-detail">AI与网络安全相结合的难度还是蛮大的，但是机器学习乃至深度学习在网络安全领域的作用是不容小觑的。 
+学习网络安全的AI之路，推荐下载AI安全领域三部曲套装：Web安全之机器学习入门+Web安全之深度学习实战+Web安全之强化学习与GAN+全书配套源码 
+地址https://download.csdn.net/download/half_step/10763674 非常有帮助！...</dd>
+                            
+                            
+                            
+
+                            <dd class="author-time">
+                                <span class="author">作者：</span>
+                                <a href="http://blog.csdn.net/half_step" target="_blank">half_step</a>
+                                
+                                
+                                <span class="attr">浏览量：</span><span class="mr16">239</span>
+                                
+                                <span class="attr">时间：</span><span class="date">2018-11-04</span>
+                                
+                            </dd>
+
+                        
+                    </dl>
+                
+
+                
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+
+                
+
+                
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://edu.csdn.net/course/detail/10300","strategy":"SOOPENSEARCH","index":"14","biz_id":"3","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726874051132%22%2C%22scm%22%3A%2220140713.130063507..%22%7D","request_id":"158133427319726874051132"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://edu.csdn.net/course/detail/10300","strategy":"SOOPENSEARCH","index":"14","biz_id":"3","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726874051132%22%2C%22scm%22%3A%2220140713.130063507..%22%7D","request_id":"158133427319726874051132"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon3">学院</span>
+                            <a href="https://edu.csdn.net/course/detail/10300" target="_blank"><em>AI</em>开发者大会——主会场</a>
+                            <a href="https://edu.csdn.net/course/detail/10300" target="_blank">&nbsp;&nbsp;-&nbsp;CSDN学院</a>
+                        </div>
+                        </dt>
+                        <dd class="course_pic">
+                            <a href="https://edu.csdn.net/course/detail/10300" target="_blank">
+                                
+                                    <img src="https://img-bss.csdn.net/20191113110527633.jpg">
+                                
+                                
+                            </a>
+                        </dd>
+                        <dd class="search-detail course_search_detail college">AI开发者大会（AI NEXTCon），是由中国IT社区CSDN与硅谷AI社区AICamp联合出品的AI技术与产业年度盛会。本节课从讲解了AI 
+技术的发展前景，AI在求职，实践中的应用。机器学习的基本发展情况</dd>
+
+                        <dd class="author-time class-so-a">
+                            <span class="author">讲师：</span><a href="https://edu.csdn.net/lecturer/lecturer_detail?lecturer_id=601"
+                                                       target="_blank" class="teacher">CSDN讲师</a>
+                            
+                                
+                                
+                            
+                
+                
+                            
+                            <span class="attr">学员：</span><span>1168人在学习</span>
+                        </dd>
+                        
+                    </dl>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+
+                
+
+                
+                    <dl class="search-list J_search" style="overflow: hidden"
+                        data-report-view='{"mod":"popu_271","dest":"https://download.csdn.net/download/siasd/9956419","strategy":"SOOPENSEARCH","index":"15","biz_id":"1","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725256700711%22%2C%22scm%22%3A%2220140713.130062587..%22%7D","request_id":"158133427319725256700711"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://download.csdn.net/download/siasd/9956419","strategy":"SOOPENSEARCH","index":"15","biz_id":"1","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725256700711%22%2C%22scm%22%3A%2220140713.130062587..%22%7D","request_id":"158133427319725256700711"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon6">下载</span>
+                            <a href="https://download.csdn.net/download/siasd/9956419" target="_blank"><em>AI</em> Dummies</a>
+                            <a href="https://download.csdn.net/download/siasd/9956419" target="_blank">&nbsp;-&nbsp;CSDN下载</a>
+                        </div>
+                        </dt>
+
+
+
+
+
+
+
+                            
+                                
+                            
+                            <div class="fr_box">
+                                <dd class="search-detail">适合初学AI入门</dd>
+                                <dd class="author-time">
+                                    <span class="author">作者：</span>
+                                    <a href="http://my.csdn.net/siasd" target="_blank">siasd</a>
+                                    
+                                    <span class="attr">格式：</span>
+                                    <span class="mr16 file-style">pdf</span>
+                                    
+                                    <span class="attr">大小：</span>
+                                    <span class="mr16">2.56M</span>
+                                    
+                                    <span class="attr">时间：</span>
+                                    <span class="date">2017-08-30</span>
+                                    
+                                            
+                                    
+                                </dd>
+                            </div>
+
+                        
+                    </dl>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+
+                
+
+                
+                    <dl class="search-list J_search" style="overflow: hidden"
+                        data-report-view='{"mod":"popu_271","dest":"https://download.csdn.net/download/shushi_bk/9911718","strategy":"SOOPENSEARCH","index":"16","biz_id":"1","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725256700711%22%2C%22scm%22%3A%2220140713.130062587..%22%7D","request_id":"158133427319725256700711"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://download.csdn.net/download/shushi_bk/9911718","strategy":"SOOPENSEARCH","index":"16","biz_id":"1","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725256700711%22%2C%22scm%22%3A%2220140713.130062587..%22%7D","request_id":"158133427319725256700711"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon6">下载</span>
+                            <a href="https://download.csdn.net/download/shushi_bk/9911718" target="_blank">小型个人<em>AI</em></a>
+                            <a href="https://download.csdn.net/download/shushi_bk/9911718" target="_blank">&nbsp;-&nbsp;CSDN下载</a>
+                        </div>
+                        </dt>
+
+
+
+
+
+
+
+                            
+                                
+                            
+                            <div class="fr_box">
+                                <dd class="search-detail">小型个人AI，可以玩一玩</dd>
+                                <dd class="author-time">
+                                    <span class="author">作者：</span>
+                                    <a href="http://my.csdn.net/shushi_bk" target="_blank">shushi_bk</a>
+                                    
+                                    <span class="attr">格式：</span>
+                                    <span class="mr16 file-style">rar</span>
+                                    
+                                    <span class="attr">大小：</span>
+                                    <span class="mr16">1.44M</span>
+                                    
+                                    <span class="attr">时间：</span>
+                                    <span class="date">2017-07-26</span>
+                                    
+                                            
+                                    
+                                </dd>
+                            </div>
+
+                        
+                    </dl>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+
+                
+
+                
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://edu.csdn.net/course/detail/1106","strategy":"SOOPENSEARCH","index":"17","biz_id":"3","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726874051132%22%2C%22scm%22%3A%2220140713.130063507..%22%7D","request_id":"158133427319726874051132"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://edu.csdn.net/course/detail/1106","strategy":"SOOPENSEARCH","index":"17","biz_id":"3","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726874051132%22%2C%22scm%22%3A%2220140713.130063507..%22%7D","request_id":"158133427319726874051132"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon3">学院</span>
+                            <a href="https://edu.csdn.net/course/detail/1106" target="_blank"><em>AI</em>-行为树</a>
+                            <a href="https://edu.csdn.net/course/detail/1106" target="_blank">&nbsp;&nbsp;-&nbsp;CSDN学院</a>
+                        </div>
+                        </dt>
+                        <dd class="course_pic">
+                            <a href="https://edu.csdn.net/course/detail/1106" target="_blank">
+                                
+                                    <img src="https://img-bss.csdn.net/20191113095736805.jpg">
+                                
+                                
+                            </a>
+                        </dd>
+                        <dd class="search-detail course_search_detail college">本课程主要是针对AI算法中的行为树给大家通过案例分析如何使用。</dd>
+
+                        <dd class="author-time class-so-a">
+                            <span class="author">讲师：</span><a href="https://edu.csdn.net/lecturer/lecturer_detail?lecturer_id=144"
+                                                       target="_blank" class="teacher">姜雪伟</a>
+                            
+                                
+                                
+                            
+                
+                
+                            
+                            <span class="attr">学员：</span><span>7428人在学习</span>
+                        </dd>
+                        
+                    </dl>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+
+                
+
+                
+                    <dl class="search-list J_search" style="overflow: hidden"
+                        data-report-view='{"mod":"popu_271","dest":"https://download.csdn.net/download/coolrainman/10215181","strategy":"SOOPENSEARCH","index":"18","biz_id":"1","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725256700711%22%2C%22scm%22%3A%2220140713.130062587..%22%7D","request_id":"158133427319725256700711"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://download.csdn.net/download/coolrainman/10215181","strategy":"SOOPENSEARCH","index":"18","biz_id":"1","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319725256700711%22%2C%22scm%22%3A%2220140713.130062587..%22%7D","request_id":"158133427319725256700711"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon6">下载</span>
+                            <a href="https://download.csdn.net/download/coolrainman/10215181" target="_blank"><em>Ai</em>标准2018</a>
+                            <a href="https://download.csdn.net/download/coolrainman/10215181" target="_blank">&nbsp;-&nbsp;CSDN下载</a>
+                        </div>
+                        </dt>
+
+
+
+
+
+
+
+                            
+                                
+                            
+                            <div class="fr_box">
+                                <dd class="search-detail">2018国家人工智能白皮书 AI,机器学习,深度学习,nlp,神经网络</dd>
+                                <dd class="author-time">
+                                    <span class="author">作者：</span>
+                                    <a href="http://my.csdn.net/coolrainman" target="_blank">coolrainman</a>
+                                    
+                                    <span class="attr">格式：</span>
+                                    <span class="mr16 file-style">zip</span>
+                                    
+                                    <span class="attr">大小：</span>
+                                    <span class="mr16">2.15M</span>
+                                    
+                                    <span class="attr">时间：</span>
+                                    <span class="date">2018-01-20</span>
+                                    
+                                            
+                                    
+                                </dd>
+                            </div>
+
+                        
+                    </dl>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+                
+                
+
+                
+
+                
+                
+                
+                
+                    <dl class="search-list J_search"
+                        data-report-view='{"mod":"popu_271","dest":"https://ask.csdn.net/questions/357318","strategy":"SOOPENSEARCH","index":"19","biz_id":"4","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726869058210%22%2C%22scm%22%3A%2220140713.130063897..%22%7D","request_id":"158133427319726869058210"}'
+                        data-report-click='{"mod":"popu_271","dest":"https://ask.csdn.net/questions/357318","strategy":"SOOPENSEARCH","index":"19","biz_id":"4","ops_request_misc":"%7B%22request%5Fid%22%3A%22158133427319726869058210%22%2C%22scm%22%3A%2220140713.130063897..%22%7D","request_id":"158133427319726869058210"}'>
+                        <dt>
+                        <div class="limit_width">
+                            <span class="flag_icon flag_icon4">问答</span>
+                            <a href="https://ask.csdn.net/questions/357318" target="_blank">求最小的j(1)使得i≠j且d(<em>Ai</em>,Aj)最小 </a>
+                            <a href="https://ask.csdn.net/questions/357318" target="_blank">&nbsp;-&nbsp;CSDN问答</a>
+                        </div>
+                        </dt>
+                        <dd class="search-detail">对于两个正整数a、b，这样定义函数d(a,b)：每次操作可以选择一个质数p，将a变成a*p或a/p， 
+如果选择变成a/p就要保证p是a的约数，d(a,b)表示将a变成b所需的最少操作次数。例如d(69,42)=3。 
+现在给出n个正整数A1,A2,…,An，对于每个i (1&lt;=i&lt;=n)，求最小的j(1&lt;=j&lt;=n)使得i≠j且d(Ai,Aj)最小。 
+2&lt;=n&lt;=100,000, Ai&lt;=1,000,000.</dd>
+                        <dd class="author-time">
+                            <span class="author">作者：</span>
+                            <a href="http://my.csdn.net/shunfurh" target="_blank">shunfurh</a>
+                            
+                                    
+                                    
+                            
+                            <span class="attr">评论：</span><span class="mr16">1</span>
+                            
+                            <span class="attr">时间：</span><span class="date">2017-01-11</span>
+                            
+                        </dd>
+                        
+                    </dl>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+
+
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            
+        </div>
+
+
+
+
+
+
+
+
+
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+
+
+        
+        
+        <div class="search-result-pagination">
+            <div class="csdn-pagination hide-set" >
+                <span class="page-nav">
+                    
+
+                    
+
+                    
+                        
+                        
+                            
+                            
+                                <a href="?p=1&q=ai&t=&viparticle=&domain=&o=&s=&u=&l=&f="
+                                   page_num="1"  class="btn btn-xs btn-default active checklogin"
+                                >
+                                        1 </a>
+                            
+                        
+                        
+                    
+                        
+                        
+                            
+                            
+                                <a href="?p=2&q=ai&t=&viparticle=&domain=&o=&s=&u=&l=&f="
+                                   page_num="2" 
+                                 class="btn btn-xs btn-default checklogin">
+                                        2 </a>
+                            
+                        
+                        
+                    
+                        
+                        
+                            
+                            
+                                <a href="?p=3&q=ai&t=&viparticle=&domain=&o=&s=&u=&l=&f="
+                                   page_num="3" 
+                                 class="btn btn-xs btn-default checklogin">
+                                        3 </a>
+                            
+                        
+                        
+                    
+                        
+                        
+                            
+                            
+                                <a href="?p=4&q=ai&t=&viparticle=&domain=&o=&s=&u=&l=&f="
+                                   page_num="4" 
+                                 class="btn btn-xs btn-default checklogin">
+                                        4 </a>
+                            
+                        
+                        
+                    
+                        
+                        
+                            
+                            
+                                <a href="?p=5&q=ai&t=&viparticle=&domain=&o=&s=&u=&l=&f="
+                                   page_num="5" 
+                                 class="btn btn-xs btn-default checklogin">
+                                        5 </a>
+                            
+                        
+                        <span class="ellipsis">...</span>
+                    
+                        
+                        
+                            
+                            
+                                <a href="?p=20&q=ai&t=&viparticle=&domain=&o=&s=&u=&l=&f="
+                                   page_num="20" 
+                                 class="btn btn-xs btn-default checklogin">
+                                        20 </a>
+                            
+                        
+                        
+                    
+
+                    
+                        
+                            
+                            
+                                <a href="?p=2&q=ai&t=&viparticle=&domain=&o=&s=&u=&l="
+                                   page_num="2" class="btn btn-xs btn-default btn-next checklogin">下一页</a>
+                            
+                        
+                    
+
+                </span>
+            </div>
+        </div>
+
+        <div class="relation-search csdn-tracking-statistics" >
+            <p><em id="relateSearch"></em>的相关搜索</p>
+            <ul>
+                
+                    <li data-report-view='{"mod":"popu_49","dest":"/so/search/s.do?q=%E5%85%A8%E5%8A%A0%E5%99%A8ai%E8%A1%A8%E7%A4%BAai%E4%B8%BA1%2Cai%E8%A1%A8%E7%A4%BAai%E4%B8%BA0&t="}'
+                        data-report-click='{"mod":"popu_49","dest":"/so/search/s.do?q=%E5%85%A8%E5%8A%A0%E5%99%A8ai%E8%A1%A8%E7%A4%BAai%E4%B8%BA1%2Cai%E8%A1%A8%E7%A4%BAai%E4%B8%BA0&t="}'>
+                        <a href='/so/search/s.do?q=%E5%85%A8%E5%8A%A0%E5%99%A8ai%E8%A1%A8%E7%A4%BAai%E4%B8%BA1%2Cai%E8%A1%A8%E7%A4%BAai%E4%B8%BA0&t='
+                           class="rel-search" title="%E5%85%A8%E5%8A%A0%E5%99%A8ai%E8%A1%A8%E7%A4%BAai%E4%B8%BA1%2Cai%E8%A1%A8%E7%A4%BAai%E4%B8%BA0" target="_self">全加器ai表示ai为1,ai表...</a>
+                    </li>
+                
+                    <li data-report-view='{"mod":"popu_49","dest":"/so/search/s.do?q=ai+%E4%BC%AA%E5%8E%9F%E5%88%9B+ai%E8%AE%AD%E7%BB%83&t="}'
+                        data-report-click='{"mod":"popu_49","dest":"/so/search/s.do?q=ai+%E4%BC%AA%E5%8E%9F%E5%88%9B+ai%E8%AE%AD%E7%BB%83&t="}'>
+                        <a href='/so/search/s.do?q=ai+%E4%BC%AA%E5%8E%9F%E5%88%9B+ai%E8%AE%AD%E7%BB%83&t='
+                           class="rel-search" title="ai+%E4%BC%AA%E5%8E%9F%E5%88%9B+ai%E8%AE%AD%E7%BB%83" target="_self">ai 伪原创 ai训练</a>
+                    </li>
+                
+                    <li data-report-view='{"mod":"popu_49","dest":"/so/search/s.do?q=ai+and+machine+ai%E6%8A%80%E6%9C%AF&t="}'
+                        data-report-click='{"mod":"popu_49","dest":"/so/search/s.do?q=ai+and+machine+ai%E6%8A%80%E6%9C%AF&t="}'>
+                        <a href='/so/search/s.do?q=ai+and+machine+ai%E6%8A%80%E6%9C%AF&t='
+                           class="rel-search" title="ai+and+machine+ai%E6%8A%80%E6%9C%AF" target="_self">ai and machine ai技术</a>
+                    </li>
+                
+                    <li data-report-view='{"mod":"popu_49","dest":"/so/search/s.do?q=ai%E9%99%8D%E5%99%AA%E5%B7%A5%E5%85%B7topaz+denoise+ai&t="}'
+                        data-report-click='{"mod":"popu_49","dest":"/so/search/s.do?q=ai%E9%99%8D%E5%99%AA%E5%B7%A5%E5%85%B7topaz+denoise+ai&t="}'>
+                        <a href='/so/search/s.do?q=ai%E9%99%8D%E5%99%AA%E5%B7%A5%E5%85%B7topaz+denoise+ai&t='
+                           class="rel-search" title="ai%E9%99%8D%E5%99%AA%E5%B7%A5%E5%85%B7topaz+denoise+ai" target="_self">ai降噪工具topaz denoise ai</a>
+                    </li>
+                
+                    <li data-report-view='{"mod":"popu_49","dest":"/so/search/s.do?q=%E5%B0%8F%E7%B1%B3ai%E5%92%8C%E5%8D%8E%E4%B8%BAai%E6%99%BA%E8%83%BD&t="}'
+                        data-report-click='{"mod":"popu_49","dest":"/so/search/s.do?q=%E5%B0%8F%E7%B1%B3ai%E5%92%8C%E5%8D%8E%E4%B8%BAai%E6%99%BA%E8%83%BD&t="}'>
+                        <a href='/so/search/s.do?q=%E5%B0%8F%E7%B1%B3ai%E5%92%8C%E5%8D%8E%E4%B8%BAai%E6%99%BA%E8%83%BD&t='
+                           class="rel-search" title="%E5%B0%8F%E7%B1%B3ai%E5%92%8C%E5%8D%8E%E4%B8%BAai%E6%99%BA%E8%83%BD" target="_self">小米ai和华为ai智能</a>
+                    </li>
+                
+                    <li data-report-view='{"mod":"popu_49","dest":"/so/search/s.do?q=ai%E6%95%88%E6%9E%9Cai%E5%92%8Cps%E5%8C%BA%E5%88%AB&t="}'
+                        data-report-click='{"mod":"popu_49","dest":"/so/search/s.do?q=ai%E6%95%88%E6%9E%9Cai%E5%92%8Cps%E5%8C%BA%E5%88%AB&t="}'>
+                        <a href='/so/search/s.do?q=ai%E6%95%88%E6%9E%9Cai%E5%92%8Cps%E5%8C%BA%E5%88%AB&t='
+                           class="rel-search" title="ai%E6%95%88%E6%9E%9Cai%E5%92%8Cps%E5%8C%BA%E5%88%AB" target="_self">ai效果ai和ps区别</a>
+                    </li>
+                
+                    <li data-report-view='{"mod":"popu_49","dest":"/so/search/s.do?q=ai%E5%AF%BC%E5%9B%BEai%E5%AF%BC%E5%9B%BE&t="}'
+                        data-report-click='{"mod":"popu_49","dest":"/so/search/s.do?q=ai%E5%AF%BC%E5%9B%BEai%E5%AF%BC%E5%9B%BE&t="}'>
+                        <a href='/so/search/s.do?q=ai%E5%AF%BC%E5%9B%BEai%E5%AF%BC%E5%9B%BE&t='
+                           class="rel-search" title="ai%E5%AF%BC%E5%9B%BEai%E5%AF%BC%E5%9B%BE" target="_self">ai导图ai导图</a>
+                    </li>
+                
+                    <li data-report-view='{"mod":"popu_49","dest":"/so/search/s.do?q=deeplearning.ai%E5%92%8Cfast.ai&t="}'
+                        data-report-click='{"mod":"popu_49","dest":"/so/search/s.do?q=deeplearning.ai%E5%92%8Cfast.ai&t="}'>
+                        <a href='/so/search/s.do?q=deeplearning.ai%E5%92%8Cfast.ai&t='
+                           class="rel-search" title="deeplearning.ai%E5%92%8Cfast.ai" target="_self">deeplearning.ai和fast.ai</a>
+                    </li>
+                
+                    <li data-report-view='{"mod":"popu_49","dest":"/so/search/s.do?q=java%2Bai%E4%B8%8Epython%2Bai&t="}'
+                        data-report-click='{"mod":"popu_49","dest":"/so/search/s.do?q=java%2Bai%E4%B8%8Epython%2Bai&t="}'>
+                        <a href='/so/search/s.do?q=java%2Bai%E4%B8%8Epython%2Bai&t='
+                           class="rel-search" title="java%2Bai%E4%B8%8Epython%2Bai" target="_self">java+ai与python+ai</a>
+                    </li>
+                
+            </ul>
+        </div>
+        <div class="search-from3"  style="display:none"  >
+            <form>
+                <div class="search-text-con2 search-text-con3" style="position:relative">
+                    <input type="text" path="q" class="search-text2 search-text3" name="q" id="keyword1" value=""
+                           autocomplete="off"/>
+                    <input type="hidden" id="tb" name="t"
+                           value=""/>
+                    <input type="hidden" id="ob" name="o"
+                           value=""/>
+                    <input type="hidden" id="sb" name="s"
+                           value=""/>
+                    <input type="hidden" id="lanb" name="l"
+                           value=""/>
+                    <input type="hidden" id="viparticle-down" name="viparticle"
+                           value=""/>
+                    <ul class="search-suggest2" id="search-suggest3" style="bottom: 30px;"></ul>
+                </div>
+                <div class="search-btn-con2" data-report-click='{"mod":"popu_174","dest":"","strategy":"","index":""}'>
+                    <input type="Submit" value="搜一搜" class="search-btn2">
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--}con-l end-->
+
+    <div class="con-r">
+        <div class="con-r-inner">
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+
+
+            
+            
+            
+
+            
+
+            
+            
+            
+
+
+            <div class="pop-right">
+                
+
+            </div>
+            
+            
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+            
+            
+            <div class="persion_article" style="width:300px"></div>
+        </div>
+    </div>
+</div>
+
+
+<script src="//g.csdnimg.cn/baidu-search/1.0.2/baidu-search.js" type="text/javascript"></script>
+
+<script src="//csdnimg.cn/pubfooter/js/publib_footer-1.0.3.js" data-isfootertrack="false"></script>
+
+<script src="//g.csdnimg.cn/fixed-sidebar/1.1.6/fixed-sidebar.js" type="text/javascript"></script>
+
+
+
+<script>
+    var blogUn = "";
+    var ty = "";
+    var isVip = "";
+    var blogRequsetId = "158133427319725211963764";
+    var downloadRequsetId = "158133427319725256700711";
+    var askRequsetId = "158133427319726869058210";
+    var bbsRequsetId = "";
+    var eduRequsetId = "158133427319726874051132";
+    
+    // console.log("blogRequsetId:" + blogRequsetId + ",downloadRequsetId:" + downloadRequsetId + ",askRequsetId:" + askRequsetId
+    //     + ",bbsRequsetId:" + bbsRequsetId + ",eduRequsetId:" + eduRequsetId + ",gitchatRequsetId:" + gitchatRequsetId);
+    
+    //从博主过来的搜索
+    if (blogUn != "") {
+        if ($('.search-list-con').find('.J_search').length <= 0) {
+            $("#nodata").show()
+            // $('.baidu_img').hide()
+        }
+    }
+    var queryword = "ai";
+    var userObj = "";
+    if ("\{\"username\":\"qq_33431368\",\"nickname\":\"AI蜗牛车\",\"realname\":\"\",\"gender\":\"男\",\"birthday\":\"851184000000\",\"position\":\"东南大学硕士\",\"abstract1\":\"公众号 AI蜗牛车\",\"email\":\"\",\"repostcount\":\"92\",\"originalcount\":\"85\",\"translatedcount\":\"0\",\"isexpert\":\"true\",\"picAdress\":\"https:\/\/profile.csdnimg.cn\/E\/2\/C\/3_qq_33431368\",\"isCourseLecturer\":null,\"viewCount\":\"277755\",\"diggcount\":\"273\"\}" != "") {
+        userObj = eval('(' + "\{\"username\":\"qq_33431368\",\"nickname\":\"AI蜗牛车\",\"realname\":\"\",\"gender\":\"男\",\"birthday\":\"851184000000\",\"position\":\"东南大学硕士\",\"abstract1\":\"公众号 AI蜗牛车\",\"email\":\"\",\"repostcount\":\"92\",\"originalcount\":\"85\",\"translatedcount\":\"0\",\"isexpert\":\"true\",\"picAdress\":\"https:\/\/profile.csdnimg.cn\/E\/2\/C\/3_qq_33431368\",\"isCourseLecturer\":null,\"viewCount\":\"277755\",\"diggcount\":\"273\"\}" + ')');
+    }
+    if (!blogUn && ty == '') {
+    }
+    $("#keyword").val(queryword);
+    $("#keyword1").val(queryword);
+    $("#relateSearch").text(queryword);
+    $("#csdnSearch").text(queryword + "- CSDN搜索");
+    var isContainBaidu = "";
+    // console.log("isContainBaidu:"+isContainBaidu);
+    // console.log('queryword===',queryword)
+    var newqueryword = encodeURIComponent(queryword)
+    if (isVip != "1" || isVip == "0") {
+        // 不是免广告的才会
+        $.ajax({
+            type: 'GET',
+            url: 'https://kunpeng.csdn.net/ad/list?positions=470,471,472,473&contentKey=' + newqueryword,
+            dataType: 'json',
+            success: function (result) {
+//                console.log('鲲鹏流量分发接口返回====', result)
+                if (result && result.length) {
+                    //  console.log(ty,'ty======')
+                    if (!blogUn && ty == '') {
+                        // 来自全部
+                        // console.log('来自全部====')
+                    } else {
+                        // 其他页卡填充 第一条放广告
+                        if ((ty && ty !== 'course') && (ty && ty !== 'discuss') && (ty && ty !== 'doc') && (ty && ty !== 'ask')) {
+                            if (result[0] && result[0].status) {
+                                //console.log('result[0].con===',result[0].con)
+                                var firstDom = $(".J_search")[0];
+                                $(firstDom).before(result[0].con)
+                            }
+                        }
+                    }
+                    // 第3条后面插入广告 第8条后面插入广告 第13条后面插入广告
+                    // 对于首页来说没有J_search 则是 第4 9 14 后面插入广告
+                    if (ty !== 'course' && ty !== 'ask') {
+                        if (result[1] && result[1].status && $(".J_search").length >= 3) {
+                            $($(".J_search")[2]).after(result[1].con)
+                        }
+                        if (result[2] && result[2].status && $(".J_search").length >= 8) {
+                            $($(".J_search")[7]).after(result[2].con)
+                        }
+                        if (result[3] && result[3].status && $(".J_search").length >= 13) {
+//                         console.log('result[3].con===',result[3].con)
+                            $($(".J_search")[12]).after(result[3].con)
+                        }
+                    }
+                }
+            }
+        });
+    }
+</script>
+
+
+<script src="/so/js/baidu_site_search.js?v=20200115" type="text/javascript"></script>
+
+<script async="async"
+        charset="utf-8"
+        data-id="8935aa488dd58452b9e5ee3b44f1212f"
+        data-hide-ad-label="0"
+        data-div-Style="width: 100%; border: 0px;background-image: url(//img-ads.csdn.net/2016/201608021757063065.png);background-repeat: no-repeat;background-position: bottom right;"
+        data-img-Style="float:right;width:120px;display:none"
+        data-tit-Style="margin-left:-10px;font-family: 'Microsoft Yahei';font-size: 16px;line-height: 20px;margin-bottom: 7px;font-weight: normal;color:#2981a9;"
+        data-des-Style="margin-left:-10px;font-size: 14px;color: #666666;margin-bottom: 5px;font-family: microsoft yahei;line-height: 22px;overflow: hidden;"
+        id="ydajs"></script>
+<script type="text/javascript">
+    $(window).on("load", function () {
+        BaiduSuggestion && BaiduSuggestion.bind("keyword", {
+            "XOffset": "5",
+            "YOffset": "-3",
+            "fontSize": "14px",		//文字大小
+            "line-height": "30px",
+            "padding": "0 5px",
+            "borderColor": "#e2e2e2", 	//提示框的边框颜色
+            "bgcolorHI": "#cccccc",		//提示框高亮选择的颜色
+            "sugSubmit": false		//在选择提示词条是是否提交表单
+        });
+    })
+    $(function () {
+        // 获取地址栏参数进行判断 如果是学院则不发送ajax
+        var url = window.location.href;
+        var queryNum = queryURLParameter(url)["t"]
+        if (queryNum !== 'course') {
+//            console.log('num=====不等于',queryNum)
+            var newStr = ''
+            if ($("#keyword").val()) {
+                newStr = $("#keyword").val().replace(/^\s+|\s+$/g, '');
+            }
+            /*调用stackoverflow*/
+//            window.csdn.recommendSide({
+//                contentBox: "recommend",
+//                postBox: $(".pop-right"),
+//                query: newStr,
+//                popu: '733',
+//                size: '',
+//                callback: flix
+//            });
+            // flix()
+        }
+        flix()
+
+        function queryURLParameter(url) {
+            var obj = {};
+            var reg = /([^?=&]+)=([^?=&]+)/g;
+            url.replace(reg, function () {
+                obj[arguments[1]] = arguments[2];
+            });
+            return obj;
+        }
+
+        function flix() {
+            window.csdn.fixedSidebar({
+                targetBox: $('.con-r-inner'), //判断到达底部的div,公共footer可选 $('.persion_article'),$('.public_pc_right_footer2018')
+                mainBox: $(".con-l"), //侧边栏旁边的主体div,默认 $("main")
+                sidebar: $(".con-r-inner"), //侧边栏,默认 $("aside")
+                direction: 'right', //侧边栏浮动方向,可选'right','left',
+                position: 'fixed',//定位方式
+                bottom: 0,
+                zIndex: 99,
+                sidebarRightMargin: 8,//direction为left,侧边栏距离mainbox的右边距
+                sidebarLeftMargin: 12,//direction为right,侧边栏距离mainbox的左边距,
+                top: 44
+            })
+            $('.pop-right').css('margin-bottom', '20px!important')
+        }
+    })
+
+</script>
+<script>
+    $(function () {
+        if (window.csdn && typeof window.csdn.configuration_tool_parameterv === 'function') {
+            window.csdn.configuration_tool_parameterv({
+                need_first_suspend: false, //第一栏悬浮,
+                need_little_suspend: true ,//第二栏悬浮,
+                little_tool_id: '.new_topbox_navbar' ,//第二栏id,
+                little_need_insert_type: 'searchUser', //第二栏需要模块类型,
+                need_change_function: function (flag) {
+                    if (flag === 'fixed') {
+                        $('.new_topbox_navbar').addClass('fixed');
+                    } else if (flag === 'noFixed') {
+                        $('.new_topbox_navbar').removeClass('fixed');
+                    }
+                }
+            });
+        }
+
+        $('#hottest').on('mouseenter', function () {
+            $(this).find('.drop-down-menu').show();
+        });
+
+        $('#hottest').on('mouseleave', function () {
+            $(this).find('.drop-down-menu').hide();
+        });
+
+        $('#select-text').on('click', function () {
+            $('#hottest .drop-down-menu').show();
+        });
+
+        $('#hottest .drop-down-menu li').on('click', function (e) {
+            var target = $(e.target);
+            $('#hottest .drop-down-menu li').removeClass('current');
+            target.addClass('current');
+            $('#select-text').text(target.text());
+            $('#hottest .drop-down-menu').hide();
+            changeOrder(target.attr('data-value'));
+        });
+
+        // 未关注时hover有样式
+        $(document).on('mouseenter mouseleave', '.search-list .attention', function (event) {
+            if (event.type == 'mouseenter') {
+                if ($.trim($(this).text()) === '关注') {
+                    $(this).addClass('hover');
+                }
+            } else if (event.type == 'mouseleave') {
+                $(this).removeClass('hover');
+            };
+        });
+    });
+</script>
+</body>
+
+
+</html>
