@@ -3,7 +3,7 @@ import scrapy
 from csdn.items import CsdnItem
 import json
 
-class_name = "ai"
+class_name = "数据库"
 class ClassspiderSpider(scrapy.Spider):
     name = 'classspider'
     allowed_domains = ['blog.csdn.net']

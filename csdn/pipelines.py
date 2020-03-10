@@ -7,25 +7,32 @@
 import logging
 from scrapy.exporters import JsonLinesItemExporter
 from scrapy import Spider
+from bs4 import BeautifulSoup
+import jieba
 logger = logging.getLogger(__name__)
 
 class CsdnPipeline(object):
     def __init__(self):
-        self.fp = open("data.json","wb")
+        self.fp = open("fulldata2.json","ab")
         self.expoter = JsonLinesItemExporter(self.fp,ensure_ascii=False)
         self.count = 1
-        pass
+        self.stopword = []
 
+        with open("./stopwords_zh.txt", encoding="gbk") as f:
+            stopword = [i.strip() for i in f.readlines()]
+            stopword += ["\n"] + [""]
+        self.stopword = stopword
+        print("%"*30)
     def process_item(self, item, spider:Spider):
         logging.debug(">"*30)
         self.count+=1
+        soup = BeautifulSoup(item["body"], "lxml")
+        cutdata = jieba.cut(soup.text)
+        cutdata = [i.strip() for i in cutdata]
+        cutdata = [i for i in cutdata if i not in self.stopword]
+        item["body"] = cutdata
         self.expoter.export_item(item)
 
-        # logging.debug(item)
-        if self.count>100:
-            spider.close(spider,"enough")
-        # print(">"*30)
-        # print(self.count)
-        # print("="*30)
+
     def __del__(self):
         self.fp.close()
